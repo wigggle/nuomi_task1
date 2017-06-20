@@ -1,50 +1,95 @@
 #container{
     position: relative;
-    width: 520px;
-    height: 340px;
-    margin: 0 auto;
-    background: url("bg.jpg");
-    opacity: 0.6;
+    width: 600px;
+    height: 350px;
+    margin: 50px auto;
+}
+#container img{
+    height: 350px;
+    width: 600px;
+    transition: filter 1s;
+}
+#container:hover img{
+    /*模糊效果*/
+    filter: blur(2px);
+}
+#container:hover #fig::before{
+    width: 100%;
+    left: 0;
+}
+#container:hover #fig::after{
+    height: 100%;
+    top: 0;
+}
+#container:hover #fig{
+    opacity: 1;
+}
+
+#fig {
+    position: absolute;
+    width: 570px;
+    height: 320px;
+    left: 15px;
+    top: 15px;
     text-align: center;
-    font-size: 30px;
-    line-height: 30px;
-    padding-top: 30px;
-}
-
-#pic {
-    width: 480px;
-    height: 280px;
     margin: auto;
-    border: 3px solid #ffffff;
-}
-
-#pic a{
-    display: block;
-    opacity: 0.2;
-    text-decoration: none;
-
-    -webkit-transition: opacity 1s linear;
-    transition: opacity 2s linear;
-
-    /*使用文字作为裁剪区域向外裁剪，此时文字颜色仍覆盖背景图*/
-    -webkit-background-clip: text;
-
-    /*设置字体颜色为透明 这样就能显示出背景图*/
-    -webkit-text-fill-color: transparent;
-
+    /*先不设置边框*/
     /*无缝连接流光效果，定义颜色组合，最后100%的颜色要和第一种颜色相同*/
     background-image: -webkit-linear-gradient(left, yellow, red 25%, blue 50%, red 75%, yellow 100%);
-
     /*设置背景图长度*/
     background-size: 200% 100%;
-    margin-top: 100px;
-
-}
-
-#pic:hover a{
-    opacity: 1;
+    /*使用文字作为裁剪区域向外裁剪，此时文字颜色仍覆盖背景图*/
+    -webkit-background-clip: text;
+    /*设置字体颜色为透明 这样就能显示出背景图*/
+    -webkit-text-fill-color: transparent;
+    padding-top: 100px;
+    box-sizing: border-box;
     /*鼠标悬浮时开始动画*/
-    animation: gradient 2s linear infinite;
+    animation: gradient 3s linear infinite;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 0.6s, top 0.6s;
+}
+#container #fig::before{
+    position: absolute;
+    top: 0;
+    content: '';
+    width: 0%;
+    height: 318px;
+    transition: width 1s,left 1s;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    box-sizing: border-box;
+    z-index: 10;
+}
+#container #fig::after{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    content: '';
+    width: 568px;
+    height: 0;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transition: height 1s,top 1s;
+    box-sizing: border-box;
+    z-index: 90;
+}
+#container #fig .title{
+    width: 100%;
+    display: block;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+#container #fig .link{
+    position: relative;
+    background-image: -webkit-linear-gradient(left,#3498db 0%,#f47920 10%,#d71345 20%,#f7acbc 30%,#ffd400 40%,#3498db 50%,#f47920 60%,#d71345 70%,#f7acbc 80%,#ffd400 90%,#3498db 100%);;
+    background-size: 200%,100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    z-index: 100;
+    animation: gradient 4s infinite linear;
 }
 
 @keyframes gradient {

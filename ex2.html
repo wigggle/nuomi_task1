@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>半透明的登录框</title>
+    <style>
+        body{
+            background: url("bg.jpg") no-repeat left top;
+        }
+        .test-div{
+            position: relative;
+            width: 580px;
+            height: 330px;
+            padding: 20px 10px;
+            font-weight: bold;
+            display:flex;
+            justify-content: center;
+
+        }
+        .test-div:before{
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.5);/*白色背景 透明度0.5*/
+            z-index: -1;
+        }
+        table{
+            padding: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-div">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input placeholder="your name"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" placeholder="your password"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="button" value="login"></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>

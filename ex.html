@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>css练习</title>
+    <style>
+        .triangle{
+            width: 0;
+            height: 0;
+            border:50px solid transparent;
+            border-top-color: black;
+
+            /*border-left: 50px solid red;
+            border-right: 50px solid purple;
+            border-bottom: 50px solid blue;
+            border-top: 50px solid black;*/
+        }
+
+        .test-div{
+            position: relative;
+            width: 150px;
+            height: 36px;
+            border-radius: 5px;
+            border: black 1px solid;
+            background: cornflowerblue;
+        }
+        .test-div:before,.test-div:after{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 8px;
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+        }
+        .test-div:before{
+            left: -11px;
+            border-right-color: cornflowerblue;
+            z-index: 1;
+        }
+        .test-div:after{
+            left: -12px;
+            border-right-color: black;
+            z-index: 0;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div class="triangle"></div>
+    <div class="test-div"></div>
+</body>
+</html>
